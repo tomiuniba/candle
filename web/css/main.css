@@ -3,7 +3,8 @@ html, body {
     margin: 0;
     padding: 0;
     font-size: 10pt;
-    font-family: sans-serif;
+    font-family: 'Open Sans',sans-serif;
+    color: #555f61;
     min-width: 700px;
 }
 
@@ -16,16 +17,28 @@ form {
     padding: 0;
 }
 
-#vrch {
+#vrch_riadok {
     height: 90px;
-    position: relative;
+    position: static;
+    top: 0;
+    left: 90px;
+    background-color: white;
+
+}
+
+@media screen and (max-width: 996px) {
+    #vrch_riadok {
+        position: relative;
+        top: 100px;
+        left: 0px;
+    }
 }
 
 #vrch_riadok1 {
     position: absolute;
-    left: 0;
+    left: 90px;
     top: 0;
-    width: 100%;
+    right:0;
     min-width: 600px;
 }
 
@@ -73,13 +86,14 @@ form {
     bottom: 0;
     width: 100%;
     min-width: 800px;
+    top: 30px;
 }
 
 #vrch_riadok2 ul {
     display: block;
     margin: 0;
     padding: 0;
-    margin-left: 290px;
+    margin-left: 90px;
     padding-right: 10px;
 }
 
@@ -136,17 +150,81 @@ form {
     margin-left: 0.3em;
 }
 
-#vrch_logo {
+#rozvrh_akcie a::before {
+    font: normal normal normal 14px/1 FontAwesome;
+    position: relative;
+    font-size: 2em;
+}
+
+#rozvrh_akcie a {
+    /*display: none;*/
+}
+
+#rozvrh_akcie #menuPublish a::before {
+    content: "\f1e0";
+}
+
+#rozvrh_akcie #menuUnpublish a::before {
+    content: "\f00d";
+}
+
+#rozvrh_akcie #menuSave a::before{
+    content: "\f0c7";
+}
+
+#rozvrh_akcie #menuRename a::before {
+    content: "\f040";
+}
+
+#rozvrh_akcie #menuPrint a::before {
+    content: "\f02f";
+}
+
+/*#rozvrh_akcie #menuPrint a {
+    background: url("../../graphics/save-regular.svg") top left no-repeat;
+    !*background-size: 70px;*!
+    color: #1A1A1A;
+}*/
+
+
+
+#rozvrh_akcie #timetablePrintButton a::before {
+    content: "\f02f";
+}
+
+#rozvrh_akcie #menuDuplicate a::before {
+    content: "\f0c5";
+}
+
+#rozvrh_akcie #menuImport a::before {
+    content: "\f090";
+}
+
+#rozvrh_akcie #menuExport a::before {
+    content: "\f08b";
+}
+
+#rozvrh_akcie #menuDelete a::before {
+    content: "\f1f8";
+}
+
+#logo {
+    width: 70px;
+    height: 70px;
+    top: 25px;
     margin: 0;
     padding: 0;
     position: absolute;
     left: 10px;
     bottom: 2px;
     font-size: 150%;
-    z-index: 100;
+    /*z-index: 100;*/
+
 }
 
-#vrch_logo a {
+#logo a {
+    width: 100%;
+    height: 100%;
     display: block;
     line-height: 64px;
     padding-left: 85px;
@@ -159,14 +237,54 @@ form {
 }
 
 #hlavny {
-    position: relative;
+    margin: 0 auto;
+    display: block;
+    height: 100%;
+    margin-left: 93px;
+
+    position: absolute;
+
+}
+
+@media screen and (max-width: 996px) {
+    #hlavny {
+        position: relative;
+        top: 100px;
+        margin-left: 3px;
+    }
 }
 
 #panel {
     width: 290px;
-    position: absolute;
-    left: 0;
-    top: 90px;
+    height: 100%;
+    left: 90px;
+    /*top: 0px;*/
+
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    overflow-x: hidden;
+    display: -webkit-box;
+
+
+
+}
+
+@media screen and (max-width: 996px) {
+    #panel {
+        top: 100px;
+        bottom: 0px;
+        left: 0px;
+        width: 100vw;
+        height: 100vh;
+
+        width: 100vw;
+        height: 100vh;
+
+        /*height: 100%;*/
+        left: 0px;
+        overflow-x: hidden;
+    }
 }
 
 .panel_hidden #panel {
@@ -175,6 +293,7 @@ form {
 
 #panel_in {
     padding: 5px;
+    width: 90%;
 }
 
 .panel_cast h2, .panel_cast_no_collapse h2 {
@@ -206,11 +325,62 @@ form {
 }
 
 #panel_schovat {
-    width: 32px;
-    height: 30px;
+    width: 90px;
+    height: 100%;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+}
+
+#panel_schovat #panel_toggle {
     position: absolute;
-    top: 90px;
-    left: 290px;
+    top: 70%;
+    transform: translate(-50%, -50%);
+    right:25%;
+    text-decoration: none;
+}
+
+#panel_schovat #panel_toggle::before {
+    content: "\f060";
+    font: normal normal normal 14px/1 FontAwesome;
+    /*position: relative;*/
+    font-size: 2em;
+}
+
+.panel_hidden #panel_schovat #panel_toggle::before {
+    content: "\f061";
+    /*font: normal normal normal 14px/1 FontAwesome;*/
+    /*position: relative;*/
+    /*font-size: 2em;*/
+}
+
+@media screen and (max-width: 996px) {
+    #panel_schovat {
+        width: 100vw;
+        height: 100px;
+        min-height: auto;
+        top: 0;
+        left: 0; }
+    #panel_schovat #panel_toggle {
+        top: 50%;
+        right:9%;
+    }
+
+    #panel_schovat #panel_toggle::before {
+        content: "\f0c9";
+    }
+
+    .panel_hidden #panel_schovat #panel_toggle::before {
+        content: "\f0c9";
+        /*font: normal normal normal 14px/1 FontAwesome;*/
+        /*position: relative;*/
+        /*font-size: 2em;*/
+    }
+
+    #panel_schovat #logo {
+        top: 25px;
+    }
 }
 
 #panel_schovat.hidden {
@@ -225,8 +395,8 @@ form {
     display: block;
     padding: 0;
     margin: 0;
-    width: 24px;
-    height: 21px;
+    /*width: 24px;
+    height: 21px;*/
 }
 
 .panel_cast.collapsed .panel_cast_obsah {
@@ -337,7 +507,11 @@ ul.vysledky_hladania li+li {
 }
 
 #obsah_wrap {
-    padding-left: 290px;
+    /*padding-left: 290px;*/
+}
+
+#timetable_editor_info {
+    margin-left: 50px;
 }
 
 .panel_hidden #obsah_wrap {
@@ -346,8 +520,8 @@ ul.vysledky_hladania li+li {
 
 #obsah_in {
     padding-top: 15px;
-    padding-left: 15px;
-    padding-right: 1em;
+    padding-left: 0px;
+    padding-right: 0em;
 }
 
 #timetable_editor_command_bar {
@@ -361,7 +535,7 @@ ul.vysledky_hladania li+li {
 }
 
 #rozvrh tr.startTimeHeader {
-    border-top: 2px solid;
+    /*border-top: 2px solid;*/
 }
 
 #rozvrh th {
@@ -369,6 +543,8 @@ ul.vysledky_hladania li+li {
     font-weight: normal;
     width: 20%;
     border: 2px solid;
+    height: 50px;
+    border-bottom: 1px solid #dbdee3;
 }
 
 #rozvrh td {
@@ -395,8 +571,8 @@ ul.vysledky_hladania li+li {
 }
 
 #rozvrh td.cas {
-    text-align: right;
-    padding: 2px;
+    text-align: center;
+    padding: 4px;
 }
 
 #rozvrh.precise td {
@@ -414,6 +590,15 @@ ul.vysledky_hladania li+li {
     border: 2px solid;
 }
 
+#rozvrh td {
+    /*position: absolute;*/
+    /*width: 100px;*/
+}
+
+#rozvrh td.startOfDayColumn {
+    /*width: 100px;*/
+}
+
 #rozvrh th.zaciatok {
     width: auto;
 }
@@ -429,11 +614,18 @@ ul.vysledky_hladania li+li {
     left: 0;
 }
 
+#rozvrh td.hodina .miestnost a {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+}
+
 #rozvrh td.hodina .typ {
     position: absolute;
     top: 0;
     right: 0;
     text-align: center;
+    border-radius: 3px;
 }
 
 #rozvrh td.hodina .typ abbr {
@@ -661,6 +853,11 @@ ul.quickswitch li a {
     display: inline-block;
     text-decoration: none;
     border-radius: 5px;
+}
+
+#web_header {
+    margin-left: 50px;
+    margin-bottom: 5px;
 }
 
 #web_header h1 {

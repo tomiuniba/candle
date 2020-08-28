@@ -27,7 +27,7 @@
 <body class="kiosk">
 <div id="vrch">
 <div id="vrch_logo"><?php echo link_to('Candle', '@homepage') ?></div>
-<div id="kiosk_vrch">
+    <div id="kiosk_vrch">
     <?php if (has_slot('header_kiosk')):
             include_slot('header_kiosk');
           else:

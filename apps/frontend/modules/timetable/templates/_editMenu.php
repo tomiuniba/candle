@@ -1,19 +1,28 @@
 <h2 class="pristupnost">Akcie aktívneho rozvrhu</h2>
 <ul id="rozvrh_akcie">
-    <li><?php
+
+    <?php
+
         if($published_slug) {
+            echo '<li id="menuUnpublish">';
             echo link_to($published_slug, '@timetable_show_published?slug='.$published_slug);
             echo '</li><li>';
-            echo link_to('Nezdieľať', '@timetable_unpublish?id='.$timetable_id, array('rel' => 'nofollow'));
+            echo link_to(' ', '@timetable_unpublish?id='.$timetable_id, array('rel' => 'nofollow'));
         }
         else {
-            echo link_to('Zdieľať', '@timetable_publish?id='.$timetable_id, array('rel' => 'nofollow'));
+            echo '<li id="menuPublish">';
+            echo link_to(' ', '@timetable_publish?id='.$timetable_id, array('rel' => 'nofollow'));
+
         }
-        ?></li><!--
-    --><li id="menuSave"><?php echo link_to('Uložiť', '@timetable_save?id='.$timetable_id, array('rel' => 'nofollow')); ?></li><!--
-    --><li><?php echo link_to('Premenovať', '@timetable_rename?id='.$timetable_id, array('rel' => 'nofollow')); ?></li><!--
-    --><li id="menuPrintBefore"><?php echo link_to('Duplikovať', '@timetable_duplicate?id='.$timetable_id, array('rel' => 'nofollow')); ?></li><!--
-    --><li><?php echo link_to('Importovať', '@timetable_import?id='.$timetable_id, array('rel' => 'nofollow')); ?></li><!--
-    --><li><?php echo link_to('Exportovať', '@timetable_export?id='.$timetable_id, array('rel' => 'nofollow')); ?></li><!--
-    --><li><?php echo link_to('Zmazať', '@timetable_delete?id='.$timetable_id, array('rel' => 'nofollow')); ?></li>
+    echo '</li>';
+        ?>
+    <!--
+    --><li id="menuSave"><?php echo link_to(' ', '@timetable_save?id='.$timetable_id, array('rel' => 'nofollow')); ?></li><!--
+    --><li id="menuRename"><?php echo link_to(' ', '@timetable_rename?id='.$timetable_id, array('rel' => 'nofollow')); ?></li><!--
+    --><li id="menuPrint"><?php echo link_to(' ', '@timetable_rename?id='.$timetable_id, array('rel' => 'nofollow')); ?></li><!--
+    --><li id="menuDuplicate"><?php echo link_to(' ', '@timetable_duplicate?id='.$timetable_id, array('rel' => 'nofollow')); ?></li><!--
+    --><li id="menuImport"><?php echo link_to(' ', '@timetable_import?id='.$timetable_id, array('rel' => 'nofollow')); ?></li><!--
+    --><li id="menuExport"><?php echo link_to(' ', '@timetable_export?id='.$timetable_id, array('rel' => 'nofollow')); ?></li><!--
+    --><li id="menuDelete"><?php echo link_to(' ', '@timetable_delete?id='.$timetable_id, array('rel' => 'nofollow')); ?></li>
+    <!--mena tlacidiel backup: Zdielať Uložiť Premenovať Tlacit Duplikovať Importovať Exportovať Zmazať-->
 </ul>

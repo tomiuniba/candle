@@ -1,12 +1,12 @@
 <?php
-    $panelText = get_slot('panel');
+$panelText = get_slot('panel');
 ?><!DOCTYPE html>
-<html class="<?php if(!$panelText) echo 'panel_hidden'; else echo 'panel_active'; ?>">
+<html class="<?php if (!$panelText) echo 'panel_hidden'; else echo 'panel_active'; ?>">
 <head>
     <?php include_http_metas() ?>
     <?php include_metas() ?>
     <title><?php if (include_slot('title')) echo ' - ' ?>Rozvrh pre FMFI UK</title>
-    <link rel="shortcut icon" href="<?php echo image_path('../favicon.ico') ?>" type="image/x-icon" />
+    <link rel="shortcut icon" href="<?php echo image_path('../favicon.ico') ?>" type="image/x-icon"/>
     <script type="text/javascript">
         var candleFrontendRelativeUrl = "<?php echo url_for('@homepage');?>";
         var candleFrontendAbsoluteUrl = "<?php echo url_for('@homepage', true);?>";
@@ -18,17 +18,62 @@
     <!--[if lte IE 7]>
     <?php echo stylesheet_tag('main_ie7'); ?>
     <![endif]-->
-    
+
     <?php include_slot('additionalHeadTags') ?>
 
     <?php include_javascripts() ?>
     <?php if (!has_slot('no_analytics')): ?>
         <?php include_component('layout', 'analytics') ?>
     <?php endif; ?>
+
+<!--    <link rel="stylesheet" href="assets/css/font-awesome.min.css">-->
+
 </head>
-<body class="<?php if(!$panelText) echo 'panel_hidden'?>">
-<div id="vrch">
-<div id="vrch_logo"><?php echo link_to('Rozvrh', '@homepage') ?></div>
+<body class="<?php if (!$panelText) echo 'panel_hidden' ?>">
+
+
+<?php if ($panelText): ?>
+    <div id="panel">
+        <div id="panel_in">
+            <?php echo $panelText ?>
+        </div>
+    </div>
+
+    <div id="panel_schovat" class="hidden">
+        <div id="logo"><?php echo link_to(' ', '@homepage') ?></div>
+        <a href="#" id="panel_toggle"><span class="pristupnost">Schovať/Zobraziť panel</span></a>
+
+    </div>
+
+<?php endif; ?>
+<div id="vrch_riadok">
+
+    <div id="vrch_riadok1">
+        <div id="vrch_riadok1_vpravo">
+            <?php include_component('user', 'menu'); ?>
+        </div>
+        <div id="vrch_riadok1_vlavo">
+            <h2 class="pristupnost">Linky</h2>
+            <ul><!--
+            -->
+                <li><?php echo link_to('Rozvrh', '@homepage', array('class' => 'selected')) ?></li><!--
+            -->
+                <li><a href="https://github.com/fmfi-svt/candle">Zoznam chýb</a></li><!--
+            -->
+                <li><a href="https://github.com/fmfi-svt/candle/wiki">Dokumentácia</a></li><!--
+            -->
+                <li><a href="https://github.com/fmfi-svt/candle/wiki/FAQ">FAQ</a></li><!--
+            -->
+                <li><a href="http://groups.google.com/group/candle-users">Mailing list</a></li><!--
+        --></ul>
+        </div>
+    </div>
+
+    <div id="vrch_riadok2">
+        <?php include_slot('top') ?>
+    </div>
+
+
 </div>
 <div id="hlavny">
     <div id="obsah_wrap">
@@ -37,28 +82,28 @@
                 <div id="obsah_in">
                     <div id="panel_toggle_spacer"></div>
                     <?php if ($sf_user->hasFlash('notice')): ?>
-                      <div class="flash_notice">
-                        <?php echo $sf_user->getFlash('notice') ?>
-                      </div>
+                        <div class="flash_notice">
+                            <?php echo $sf_user->getFlash('notice') ?>
+                        </div>
                     <?php endif; ?>
-             
+
                     <?php if ($sf_user->hasFlash('error')): ?>
-                      <div class="flash_error">
-                        <?php echo $sf_user->getFlash('error') ?>
-                      </div>
+                        <div class="flash_error">
+                            <?php echo $sf_user->getFlash('error') ?>
+                        </div>
                     <?php endif; ?>
 
                     <div id="web_header">
-                    <?php include_slot("header") ?>
+                        <?php include_slot("header") ?>
                     </div>
                     <?php echo $sf_content ?>
 
                     <div class="footer">
 
-                        <hr />
+                        <hr/>
 
                         <?php include_component('layout', 'lastUpdate', array('mode' => 'normal')); ?>
-                        <br />
+                        <br/>
                         Aplikácia Candle Copyright 2010,2011,2012 Martin Sucha. <span class="disclaimer2">Zdrojové kódy sa nachádzajú na
                         <a href="https://github.com/fmfi-svt/candle">stránke projektu</a>.
                         Táto aplikácia je študentský projekt a nie je oficiálne podporovaná
@@ -71,34 +116,6 @@
             </div>
         </div>
     </div>
-</div>
-<?php if ($panelText): ?>
-    <div id="panel"><div id="panel_in">
-        <?php echo $panelText ?>
-    </div></div>
-    
-<div id="panel_schovat" class="hidden"><a href="#" id="panel_toggle"><span class="pristupnost">Schovať/Zobraziť panel</span></a>
-</div>
-<?php endif; ?>
-<div id="vrch2">
-<div id="vrch_riadok2">
-    <?php include_slot('top') ?>
-</div>
-</div>
-<div id="vrch_riadok1">
-    <div id="vrch_riadok1_vpravo">
-        <?php include_component('user','menu'); ?>
-    </div>
-    <div id="vrch_riadok1_vlavo">
-        <h2 class="pristupnost">Linky</h2>
-        <ul><!--
-            --><li><?php echo link_to('Rozvrh', '@homepage', array('class'=>'selected')) ?></li><!--
-            --><li><a href="https://github.com/fmfi-svt/candle">Zoznam chýb</a></li><!--
-            --><li><a href="https://github.com/fmfi-svt/candle/wiki">Dokumentácia</a></li><!--
-            --><li><a href="https://github.com/fmfi-svt/candle/wiki/FAQ">FAQ</a></li><!--
-            --><li><a href="http://groups.google.com/group/candle-users">Mailing list</a></li><!--
-        --></ul>
-    </div>    
 </div>
 </body>
 </html>

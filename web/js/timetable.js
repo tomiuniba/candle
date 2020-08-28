@@ -8,6 +8,11 @@ var printButtonPrepare = function() {
         a.setAttribute('href', 'javascript:window.print();');
         a.setAttribute('id', 'timetablePrintButton');
         a.textContent = 'Tlačiť';
+        //a.style.content = "\f02f";
+        /*pseudoelemnty sa nedaju vkladat s javascriptom, iba skaredimi workaround-mi
+         a na dynamicky generovane objekt css subor nevpliva :( */
+        //a.pseudoStyle("before","content","\f02f");
+        //a.textContent = " ";
         $(addPrintBefore.parentNode).insertBefore(li, addPrintBefore);
     }
 }
@@ -82,6 +87,24 @@ var timetablePrepare = function() {
     }
 
 }
+
+/*
+skuska pre js => skarede
+var arrangeTable = function() {
+
+    var rows = document.getElementsByClassName('startTimeHeader');
+
+    for (i = 0; i < rows.length; i++) {
+        rows[i].style.backgroundColor = "red";
+        var c=0; //start counting columns in row
+        while(cell=rows[i].cells[c++]) {
+            var offset = 4 + (200 * c)
+            cell.style.right =  offset.toString();
+        }
+    }
+}
+window.addEvent('domready', arrangeTable);
+*/
 
 window.addEvent('domready', timetablePrepare);
 window.addEvent('domready', printButtonPrepare);

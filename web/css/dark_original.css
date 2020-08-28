@@ -1,14 +1,12 @@
 
 html, body {
-    color: #36434a;
-    background: #f5f8fd;
+    color: white;   
+    background: #4e546a url("../images/bg-body.png") left top repeat-y;
 }
 
 #vrch {
-    /* color: white; */
-    color: #36434a;
-    /* background: #1a1a1a; */
-    background: linear-gradient(to bottom,#f9f9f9,#fff);
+    color: white;
+    background: #1a1a1a;
 }
 
 #vrch_riadok1 ul li+li, #vrch_riadok1_vpravo ul li {
@@ -16,8 +14,7 @@ html, body {
 }
 
 #vrch_riadok1 a {
-    /* color: white; */
-    color: #36434a;
+    color: white;
 }
 
 #vrch_riadok1 .username {
@@ -25,29 +22,20 @@ html, body {
 }
 
 #vrch_riadok2 a {
-    /* color: white; */
-    color: #36434a;
+    color: white;
 }
 
 #rozvrh_taby a.selected, #rozvrh_taby a:hover {
-    /*     background: #343846; */
+    background: #343846;
 }
 
 #rozvrh_akcie {
-    /*     background: #343846; */
-    background: #fff;
+    background: #343846;
 }
 
-
-
-#vrch_logo {
-    color: #fff;
-}
-
-#logo a {
-    background: transparent url("../images/new/logo.svg") top left no-repeat;
-    background-size: 70px;
-    color: #fff;
+#vrch_logo a {
+    background: #1A1A1A url("../images/logo3.png") bottom left no-repeat;
+    color: white;
 }
 
 .rozvrh_stav {
@@ -56,8 +44,7 @@ html, body {
 
 #panel {
     color: white;
-    /*     background: #808080; */
-    background: #353d64;
+    background: #808080;
 }
 
 #panel .other_links a {
@@ -65,53 +52,28 @@ html, body {
 }
 
 .panel_cast h2, .panel_cast_no_collapse h2 {
-    /*     background-color: #333; */
+    background-color: #333;
     color: white;
 }
 
 .jsactive .panel_cast h2 {
-    background-image: url("../images/bg-collapse-group-n.png");
+    background-image: url("../images/bg-collapse-group.png");
 }
 
 .panel_cast.collapsed h2 {
-    background-image: url("../images/bg-expand-group-n.png");
+    background-image: url("../images/bg-expand-group.png");
 }
 
 .panel_cast h2 a, .panel_cast_no_collapse h2 {
     color: white;
 }
 
-.panel_search button {
-    background: #f9f9f9;
-    color: #555f61;
-    transition: all ease-in-out .2s;
-    border: none;
-    margin-top: 2px;
-    margin-bottom: 2px;
-}
-
 #panel_schovat {
-    /*     background: #353d64 url("../images/bg-schovavac-panelu.png") top left no-repeat; */
-
-    color: #fff;
-
-    background: #353d64;
+    background: #808080 url("../images/bg-schovavac-panelu.png") top left no-repeat;
 }
-
-
-
-#panel_schovat #panel_toggle::before {
-    color: #fff;
-
-}
-
-.panel_hidden #panel_schovat #panel_toggle::before {
-    color: #fff;
-}
-
 
 .panel_hidden #panel_schovat {
-    /*background-image: url("../images/bg-zobrazovac-panelu.png");*/
+    background-image: url("../images/bg-zobrazovac-panelu.png");
 }
 
 #panel_cast_nastroje a {
@@ -146,27 +108,15 @@ ul.vysledky_hladania li {
 }
 
 #obsah_vrch {
-    /*background: transparent url("../images/bg-obsah-top.png") top repeat-x;*/
-    /*background-image: linear-gradient(bottom, #FFFFFF 50%, #FAC815 50%);*/
-    background-image: linear-gradient(#FFFFFF, #f5f8fd);
+    background: transparent url("../images/bg-obsah-top.png") top repeat-x;
 }
 
 #obsah_vrch_lavy {
-    /*background: transparent url("../images/bg-obsah-top-left.png") top left no-repeat;*/
-    /*background: #f5f8fd;*/
-}
-
-#obsah_in {
-    /*background: #fff;*/
+    background: transparent url("../images/bg-obsah-top-left.png") top left no-repeat;
 }
 
 #obsah_in a {
-    color: #0e810f;
-}
-
-
-#rozvrh {
-    background: #f5f8fd;
+    color: yellow;
 }
 
 #rozvrh tr.startTimeHeader {
@@ -174,54 +124,28 @@ ul.vysledky_hladania li {
 }
 
 #rozvrh th {
-    background: #fff;
-    color: #555f61;
-    font-size: 1.5em;
-    border:none;
+    background: #D3D5DD;
+    color: black;
+    border-color: #4E546A;
 }
-/*     border-color: #4E546A; */
 
 #rozvrh td {
-    background-color: #f5f8fd;
-
-    /*     color: white; */
+    background-color: #666B7E;
+    color: white;
 }
 
 #rozvrh td.startOfDayColumn {
     border-left-color: #4E546A;
-    border: none;
-    /*     border-left: none; */
 }
 
 #rozvrh td.endOfDayColumn {
     border-right-color: #4E546A;
-    border: none;
-    box-shadow: 0 1px 4px 0 rgba(0,0,0,.14);
-    position: relative;
-    font-size: 14px;
-    padding: 5px 20px 5px 10px;
-    border-radius: 2px;
-    transition: all ease-in-out .25s;
-    /*     border-right: none; */
-}
-
-#rozvrh td.emptyCell {
-    box-shadow: 0 1px 3px  -10 rgba(0,0,0,.14);
-}
-
-.cas {
-    font-weight: 700;
-    font-size: 14px;
-    font-family: 'Open Sans',sans-serif;
-    color: #555f61;
 }
 
 #rozvrh td.hodina {
-    background: #fcfcfc;
+    background: #D3D5DD;
     color: black;
-    border-color: #A2A2A4;
-    border-top: none;
-    border-bottom: none;
+    border-color: #4E546A;
 }
 
 #rozvrh td.hodina.highlighted {
@@ -237,17 +161,15 @@ ul.vysledky_hladania li {
 }
 
 #rozvrh th.zaciatok {
-    background: #fff;
+    background: transparent;
 }
 
 #rozvrh td.hodina .miestnost a {
-    color: #555f61;
-
+    color: black;
 }
 
 #rozvrh td.hodina a.subjectName {
     color: black;
-    text-decoration: none;
 }
 
 .lesson-type-C .lesson-type-image {
@@ -255,7 +177,7 @@ ul.vysledky_hladania li {
 }
 
 #rozvrh td.hodina.lesson-type-C .typ {
-    background-color: #f8264f;
+    background-color: #800000;
     color: white;
 }
 
@@ -264,7 +186,7 @@ ul.vysledky_hladania li {
 }
 
 #rozvrh td.hodina.lesson-type-K .typ  {
-    background-color: #fbb841;
+    background-color: #aa8800;
     color: white;
 }
 
@@ -291,7 +213,7 @@ ul.vysledky_hladania li {
 }
 
 #rozvrh td.hodina.lesson-type-P .typ  {
-    background-color: #34c3f9;;
+    background-color: #3771c8;
     color: white;
 }
 
@@ -335,8 +257,8 @@ ul.vysledky_hladania li {
 
 #obsah_in table.vysledky_podrobneho_hladania td,
 #obsah_in table.aktualne td {
-    color: #36434a;
-    background: #f5f8fd;
+    color: white;
+    background: #666B7E;
 }
 
 #obsah_in table.vysledky_podrobneho_hladania tbody tr:hover td,
@@ -351,16 +273,15 @@ ul.vysledky_hladania li {
 }
 
 #obsah_in div.footer {
-    color: #565759;
+    color: #D3D5DD;
 }
 
 #obsah_in div.footer a {
-    color: black;
+    color: white;
 }
 
 #obsah_in div.footer .last_update {
     /*color: white;*/
-
 }
 
 #panel_throbber {
@@ -369,12 +290,11 @@ ul.vysledky_hladania li {
 
 /* Kiosk */
 #vrch_logo a {
-    color: #fff;
+    color: white;
 }
 
 #sidebar .button a {
     color: white;
-    /*     background: white; */
 }
 
 html.kiosk, body.kiosk {

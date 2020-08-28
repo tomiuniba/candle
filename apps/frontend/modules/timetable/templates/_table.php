@@ -56,22 +56,32 @@ $maxtime = max($maxtime, Candle::ceilTo($layout->getLessonMaxTime(), 50, 40));
                 echo '<tr>';
             }
             for ($day = 0; $day < 5; $day++) {
+
+
+
                 $column_count = count($days[$day]);
                 foreach ($days[$day] as $ix=>$col) {
+
+
+
                     $cell_classes = array();
 
                     if ($ix == 0) {
+
                         $cell_classes[] = 'startOfDayColumn';
                     }
                     if ($ix == $column_count-1) {
+
                         $cell_classes[] = 'endOfDayColumn';
                     }
                     
                     $pos = $counters[$day][$ix];
                     if ($pos >= count($days[$day][$ix])) {
+
                         // tento stlpec je hotovy
                         $cell_classes[] = 'emptyCell';
                         echo Candle::formatTD($cell_classes).'</td>';
+
                         continue;
                     }
                     $lesson = $days[$day][$ix][$pos];
@@ -88,6 +98,7 @@ $maxtime = max($maxtime, Candle::ceilTo($layout->getLessonMaxTime(), 50, 40));
                         $lesson = $days[$day][$ix][$pos];
                     }
                     // treba vypisat bunku?
+
                     if ($lesson['start']==$time) {
                         $rowspan = intval(($lesson['end']-$lesson['start']+$lesson['breakTime'])/$rowspanmins);
                         $highlighted = $timetable->isLessonHighlighted($lesson['id']);
@@ -117,7 +128,11 @@ $maxtime = max($maxtime, Candle::ceilTo($layout->getLessonMaxTime(), 50, 40));
                         $cell_classes[] = 'emptyCell';
                         echo Candle::formatTD($cell_classes).'</td>';
                     }
+
                 }
+
+
+
             }
             echo '</tr>';
         }
