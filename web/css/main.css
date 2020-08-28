@@ -293,7 +293,7 @@ form {
 
 #panel_in {
     padding: 5px;
-    width: 90%;
+    width: 95%;
 }
 
 .panel_cast h2, .panel_cast_no_collapse h2 {
@@ -317,11 +317,18 @@ form {
 }
 
 .panel_search input {
-    width: 200px;
+    /*width: 200px;*/
+    background: rgba(0, 0, 0, 0);
+    border: 0px;
+    border: #FFFFFF;
+    border-bottom: 1px solid #f9f9f9;
+    outline: none;
+    width: 70%;
 }
 
 .panel_search button {
-    width: 70px;
+    width: 25%;
+    height: 25px;
 }
 
 #panel_schovat {
@@ -331,6 +338,7 @@ form {
     left: 0px;
     top: 0px;
     z-index: 1;
+    box-shadow: 0 3px 15px rgba(0,0,0,.2);
 }
 
 #panel_schovat #panel_toggle {
@@ -339,6 +347,7 @@ form {
     transform: translate(-50%, -50%);
     right:25%;
     text-decoration: none;
+
 }
 
 #panel_schovat #panel_toggle::before {
@@ -361,7 +370,8 @@ form {
         height: 100px;
         min-height: auto;
         top: 0;
-        left: 0; }
+        left: 0;
+    }
     #panel_schovat #panel_toggle {
         top: 50%;
         right:9%;
